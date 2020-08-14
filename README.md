@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Deploy to production
+1. npm run build:ssr
+2. Move the dist over to your server
+3. install PM2
+4. npm install pm2 -g
+
+On your server, use PM2 to run the server bundled app
+pm2 start dist/server.js
+If you're using Nginx, or other web servers, make sure to redirect requests to the port that the app started with PM2 is listening on.
